@@ -1,38 +1,182 @@
-.App {
-  text-align: center;
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+/* Body Styling */
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
+body {
+  font-family: 'Modernline', serif; /* Apply NewYork Heavy font globally */
+  background-color: #FAF9F6; /* Off-white background */
+  background-repeat: repeat; /* Repeat both horizontally an vertically */
+  background-size: auto; /* Default size (can be adjusted if needed) */
+  background-position: top left; /* Start repeating from the top-left corner */
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+}
+/* App Container */
+.app {
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
+}
+
+.header {
+  background-color: #ff2800; /* Ferrari red */
+  background-image: linear-gradient(to right, #ff2800, #ffbf50); /* Ferrari red transitioning to coral */
+  color: #FAF9F6; /* Off-white text */
+  padding: 20px;
+  display: flex;
+  justify-content: space-between; /* Space between website name and submission link */
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+
+.submission-link{
+  font-family: "Cedarville Cursive", cursive ;
+  font-size:20px;
+  text-decoration: None;
+  color:#FAF9F6;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.user-submissions-link {
+  color: #e81515; /* Set the text color to off-white or any desired color */
+  text-decoration: none; /* Remove underline */
+  font-weight: bold; /* Optional: Make text bold for better visibility */
+  transition: transform 0.3s ease, color 0.3s ease; /* Smooth scaling effect */
+}
+
+.user-submissions-link:hover {
+  transform: scale(1.7); /* Increase size by 20% on hover */
+  color: #a00000; /* Optional: Change text color to gold on hover */
+}
+
+
+.website-name h1 {
+  font-size: 2rem; /* Larger font size for desktop */
+  
+}
+
+/* Paragraph Styling (Forza Ferrari) */
+.forza-ferrari {
+  font-family: 'Modernline', cursive; /* Apply Modernline font */
+  text-align: center; /* Center the paragraph */
+  font-size: 6rem; /* Font size for desktop */
+  background: linear-gradient(to right, #ffbf50, #ff2800); /* Ferrari red to coral gradient */
+  -webkit-background-clip: text; /* Clip background to text */
+  -webkit-text-fill-color: transparent; /* Make text fill transparent to show gradient */
+  background-clip: text; /* Standard property for non-WebKit browsers */
+  text-fill-color: transparent; /* Standard property for non-WebKit browsers */
+}
+
+/* Main Content Styling (1.8% Margin on Left and Right) */
+.main-content {
+  margin-left: 1.8%; /* Adds a margin of 1.8% on the left */
+  margin-right: 1.8%; /* Adds a margin of 1.8% on the right */
+}
+
+/* Image Gallery Container */
+.image-gallery {
+  display: flex;
+  flex-wrap: wrap; /* Wrap images to fit multiple rows */
+  gap: 20px; /* Space between images */
+  justify-content: center; /* Center-align images in rows */
+}
+
+/* Individual Image Items */
+.image-item {
+  flex-basis: calc(25% - 20px); /* Ensure max of four images per row on large screens (100% / max_images_per_row = width_per_image) */
+}
+
+.image-item img {
+  width: 75%; /* Fill the container width */
+  height: auto; /* Maintain aspect ratio */
+  object-fit: cover; /* Ensures consistent aspect ratio */
+  border-radius: 15px; /* Rounded edges for idle state */
+  transition: transform .3s ease, box-shadow .3s ease, z-index .3s ease, border-radius .3s ease; /* Smooth transition effects */
+}
+
+.image-item img:hover {
+  transform: scale(1.2); /* Expands the image slightly */
+  box-shadow: 0px 15px 30px rgba(0,0,0,0.4); /* Adds a shadow for the pop-up effect */
+}
+
+.image-item img:focus {
+  outline: none;
+  box-shadow: 0px 15px 30px rgba(0,0,0,0.6); /* Enhanced focus shadow */
+}
+
+/* Footer Styling */
+.footer {
+    font-family: "Cedarville Cursive", cursive ;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    box-sizing:border-box;
+    text-align:center;
+    padding:10px;
+    background-color:black;
+    color:#FAF9F6;
+}
+
+/* Responsive Design */
+
+/* For screens smaller than or equal to tablets (max-width:768px) */
+@media (max-width:768px) {
+    .website-name h1 {
+        font-size:2rem; /* Scale down header font size for tablets/mobile devices */
+    }
+
+    .forza-ferrari {
+        font-size: 4rem; /* Scale down paragraph font size for tablets/mobile devices */
+    }
+
+    .main-content {
+        margin-left:5%;
+        margin-right:5%;  
+    }
+
+    .image-item {
+        flex-basis: calc(33.33% - 20px); /* Show three images per row on medium-sized screens (tablets) */
+    }
+}
+
+/* For mobile screens (max-width:480px) */
+@media (max-width:480px) {
+  .footer {
+    padding: 5px;
+    font-size: 0.8rem; /* Reduce font size */
   }
-  to {
-    transform: rotate(360deg);
-  }
+
+  
+    .website-name h1 {
+        font-size:1.5rem; 
+    }
+
+    .forza-ferrari {
+        font-size:3rem; 
+    }
+
+    .main-content {
+        margin-left:auto; 
+        margin-right:auto;
+    }
+    .header {
+      padding: 10px; /* Reduce padding */
+    }
+    .website-name h1 {
+      font-size: 1.2rem; /* Further scale down header text */
+    }
+    .image-gallery {
+      gap: 10px; /* Reduced gap for smaller screens */
+    }
+    @media (max-width:480px) {
+      .image-item img:hover {
+        transform: scale(1.05); /* Smaller scale effect */
+      }
+    }
+    .image-item {
+        flex-basis: calc(50% - 20px); /* Show two images per row on small screens (phones) */
+    }
 }
